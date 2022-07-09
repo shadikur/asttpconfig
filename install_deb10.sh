@@ -73,18 +73,7 @@ ASTPPUSER_MYSQL_PASSWORD=`echo "$(genpasswd 20)" | sed s/./*/5`
 #Fetch OS Distribution
 get_linux_distribution ()
 { 
-        V1=`cat /etc/*release | head -n1 | tail -n1 | cut -c 14- | cut -c1-18`
-        V2=`cat /etc/*release | head -n7 | tail -n1 | cut -c 14- | cut -c1-14`
-        if [[ $V1 = "Debian GNU/Linux 1" ]]; then
                 DIST="DEBIAN"
-        else if [[ $V2 = "CentOS Linux 7" ]]; then
-                DIST="CENTOS"
-        else
-                DIST="OTHER"
-                echo -e 'Ooops!!! Quick Installation does not support your distribution \nPlease use manual steps or contact ASTPP Sales Team \nat sales@astpp.com.'
-                exit 1
-        fi
-        fi
 }
 
 #Install Prerequisties
